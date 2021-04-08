@@ -8,7 +8,6 @@ import './App.css';
 
 function App() {
   const { data, loading } = useQuery(GET_CHARACTERS);
-  console.log(data);
 
   return (
     <>
