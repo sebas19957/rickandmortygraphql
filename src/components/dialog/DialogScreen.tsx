@@ -1,11 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Dialog,
-  DialogTitle,
-  Grid,
-  Typography,
-} from '@material-ui/core';
+import { Avatar, Box, Dialog, Grid, Typography } from '@material-ui/core';
 import useStyles from './style';
 
 type DialogProps = {
@@ -20,9 +13,8 @@ const DialogScreen = ({ open, data, handleClose }: DialogProps) => {
   return (
     <Dialog maxWidth="xs" fullWidth open={open} onClose={handleClose}>
       <Box textAlign="center">
-        <DialogTitle id="form-dialog-title">
-          <Typography variant="h4">{data.name}</Typography>
-        </DialogTitle>
+        {/* <Typography variant="h4">{data.name}</Typography> */}
+        <h4>{data.name}</h4>
       </Box>
       <Grid container>
         <Grid container>
