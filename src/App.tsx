@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useQuery } from '@apollo/react-hooks';
+import { Box, Grid, Paper, Typography } from '@material-ui/core';
+
+import GET_CHARACTERS from './graphql/getCharacters';
+import './index.css';
+import CardScreen from './components/card/CardSreenR';
 import './App.css';
 
 function App() {
+  const { data, loading } = useQuery(GET_CHARACTERS);
+  console.log(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Box textAlign="center">
+        <h1>Rick and Morty</h1>
+      </Box>
+      <Grid container>
+        {loading ? (
+          <Box minWidth="100%" minHeight="60px" textAlign="center">
+            <Paper elevation={4}>
+              <Typography variant="h5">Loading ...</Typography>
+            </Paper>
+          </Box>
+        ) : (
+          data.characters.results.map((character: any) => (
+            <CardScreen key={character.id} data={character} />
+          ))
+        )}
+      </Grid>
+    </>
   );
 }
 
