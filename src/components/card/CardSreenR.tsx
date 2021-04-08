@@ -62,12 +62,12 @@ const CardScreen = ({ data }: CardScreenProps) => {
             </Box>
             <Grid container item>
               <Grid container justify="center" alignItems="center">
-                <Typography>{data.name}</Typography>
+                <Box marginBottom={1}>
+                  <Typography>{data.name}</Typography>
+                </Box>
               </Grid>
               <Grid container justify="center" alignItems="center">
-                <ColorButton onClick={handleOpen}>
-                  <Typography>See more</Typography>
-                </ColorButton>
+                <ColorButton onClick={handleOpen}>See more</ColorButton>
               </Grid>
             </Grid>
           </Grid>
